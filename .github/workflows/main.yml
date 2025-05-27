@@ -59,9 +59,3 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: |
         coveralls --gcov-options '\-lp' -i ${{env.COVERAGE_NAME}}
-
-    - name: Upload coverage report artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: coverage-report
-        path: ${{github.workspace}}/build/coverage_report
