@@ -32,17 +32,14 @@ TEST(trantest, SaveToDataBase)
  
 TEST(acctest, GetBalance)
 {
- MockAccount Ben(1092, 357);
- EXPECT_CALL(Ben,  GetBalance()).WillOnce(testing::Return(357)); 
+ Account Ben(1092, 357);
  int f = Ben.GetBalance();
  EXPECT_EQ(f, 357);
 }
 
 TEST(acctest, ChangeBalance)
 {
- MockAccount Ben(1092, 357);
- EXPECT_CALL(Ben,  GetBalance()).WillOnce(testing::Return(357+2018));
- EXPECT_CALL(Ben,  ChangeBalance(2018)).WillOnce(testing::Return());  
+ Account Ben(1092, 357); 
  Ben.Lock();
  Ben.ChangeBalance(2018);
  EXPECT_EQ(Ben.GetBalance(), 2018+357);
