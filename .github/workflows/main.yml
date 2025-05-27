@@ -46,9 +46,3 @@ jobs:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALS_REPO_TOKEN }}
       run: |
         coveralls --gcov-options '\-lp' -i ./build/filtered.info
-
-    - name: Upload coverage report artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: coverage-report
-        path: ./build/coverage_report
