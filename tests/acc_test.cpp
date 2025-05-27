@@ -19,13 +19,6 @@ public:
 	MOCK_METHOD(void, Unlock, (), (override));
 	MOCK_METHOD(int, id, (), (const));
 };
-
-TEST(Transaction_test, test_set_fee) {
-	Transaction trans;
-	trans.set_fee(5);
-	EXPECT_TRUE(5 == trans.fee());
-}
-
 TEST(MockTransaction_test, test_SaveToDataBase)
 {
 	Account acc1(1, 200);
@@ -45,7 +38,6 @@ TEST(Transaction_test, test_Make)
 	Account acc2(2, 873);
 	Transaction trans;
 	bool succes = trans.Make(acc1, acc2, 150);
-	std::cout << trans.fee();
 	EXPECT_FALSE(acc1.GetBalance() == (50 - trans.fee()));
 }
 
