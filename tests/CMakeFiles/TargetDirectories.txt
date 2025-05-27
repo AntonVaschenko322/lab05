@@ -1,4 +1,0 @@
-/home/antonvaschenko/projects/lab05/tests/CMakeFiles/test1.dir
-/home/antonvaschenko/projects/lab05/tests/CMakeFiles/test.dir
-/home/antonvaschenko/projects/lab05/tests/CMakeFiles/edit_cache.dir
-/home/antonvaschenko/projects/lab05/tests/CMakeFiles/rebuild_cache.dir

@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/test1.dir/acc_test.cpp.o -o test1  ../banking/libbanking.a -lgtest -lgmock 
