@@ -1,4 +1,6 @@
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(testing)
-add_executable(test1 acc_test.cpp)
 enable_testing()
+add_executable(test1 acc_test.cpp)
 target_link_libraries(test1 banking gtest gmock)
