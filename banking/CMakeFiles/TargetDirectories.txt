@@ -1,0 +1,4 @@
+/home/antonvaschenko/projects/lab05/banking/CMakeFiles/account.dir
+/home/antonvaschenko/projects/lab05/banking/CMakeFiles/transaction.dir
+/home/antonvaschenko/projects/lab05/banking/CMakeFiles/edit_cache.dir
+/home/antonvaschenko/projects/lab05/banking/CMakeFiles/rebuild_cache.dir
