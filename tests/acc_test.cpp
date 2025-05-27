@@ -22,8 +22,8 @@ class MockTransaction : public Transaction
 TEST(trantest, SaveToDataBase)
 {
 
- MockAccount acc1(1, 100);
- MockAccount acc2(2, 873);
+ Account acc1(1, 100);
+ Account acc2(2, 873);
  MockTransaction trans;
  EXPECT_CALL(trans, SaveToDataBase(testing::_, testing::_, testing::_)).Times(1);	 
  trans.SaveToDataBase(acc1, acc2, 150);
@@ -32,7 +32,7 @@ TEST(trantest, SaveToDataBase)
  
 TEST(acctest, GetBalance)
 {
- Account Ben(1092, 357);
+ MockAccount Ben(1092, 357);
  EXPECT_CALL(Ben,  GetBalance()).WillOnce(testing::Return(357)); 
  int f = Ben.GetBalance();
  EXPECT_EQ(f, 357);
@@ -40,7 +40,7 @@ TEST(acctest, GetBalance)
 
 TEST(acctest, ChangeBalance)
 {
- Account Ben(1092, 357);
+ MockAccount Ben(1092, 357);
  EXPECT_CALL(Ben,  GetBalance()).WillOnce(testing::Return(357+2018));
  EXPECT_CALL(Ben,  ChangeBalance(2018)).WillOnce(testing::Return());  
  Ben.Lock();
