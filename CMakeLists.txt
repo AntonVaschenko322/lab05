@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
+add_compile_options(--coverage)
+add_link_options(--coverage)
 project(task)
 add_subdirectory(banking)
 add_subdirectory(tests)

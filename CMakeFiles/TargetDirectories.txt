@@ -1,8 +1,0 @@
-/home/antonvaschenko/projects/lab05/CMakeFiles/edit_cache.dir
-/home/antonvaschenko/projects/lab05/CMakeFiles/rebuild_cache.dir
-/home/antonvaschenko/projects/lab05/banking/CMakeFiles/banking.dir
-/home/antonvaschenko/projects/lab05/banking/CMakeFiles/edit_cache.dir
-/home/antonvaschenko/projects/lab05/banking/CMakeFiles/rebuild_cache.dir
-/home/antonvaschenko/projects/lab05/tests/CMakeFiles/test1.dir
-/home/antonvaschenko/projects/lab05/tests/CMakeFiles/edit_cache.dir
-/home/antonvaschenko/projects/lab05/tests/CMakeFiles/rebuild_cache.dir
