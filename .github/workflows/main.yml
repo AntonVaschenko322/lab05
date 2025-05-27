@@ -43,7 +43,7 @@ jobs:
 
     - name: Upload coverage to Coveralls
       env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALS_REPO_TOKEN }}
       run: |
         coveralls --gcov-options '\-lp' -i ./build/filtered.info
 
