@@ -46,7 +46,7 @@ jobs:
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest -C ${{env.BUILD_TYPE}}
 
-    - name: Install GTest (if not bundled)
+    - name: Install GTest
       run: |
         sudo apt-get install -y libgtest-dev
 
