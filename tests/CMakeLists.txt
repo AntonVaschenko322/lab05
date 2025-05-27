@@ -1,5 +1,4 @@
 project(testing)
-find_package(GTest REQUIRED)
 add_executable(test1 acc_test.cpp)
 enable_testing()
 target_link_libraries(test1 PUBLIC banking gtest gmock)
