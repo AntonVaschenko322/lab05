@@ -29,6 +29,13 @@ TEST(trantest, SaveToDataBase)
  trans.SaveToDataBase(acc1, acc2, 150);
 }
 
+TEST(Transaction_test, test_Make) {
+	Account ben1(1, 200);
+	Account ben2(2, 873);
+	Transaction trans;
+	bool succes = trans.Make(ben1, ben2, 150);
+	EXPECT_TRUE(ben1.GetBalance() == (50 - trans.fee()));
+}
  
 TEST(acctest, GetBalance)
 {
