@@ -49,14 +49,14 @@ TEST(acctest, ChangeBalance)
 }
 TEST(acctest, Lock)
 {
- Account Ben(1092, 357);
+ MockAccount Ben(1092, 357);
  Ben.Lock();
  EXPECT_TRUE(Ben.IsLocked());
 }
 
 TEST(acctest, unlock)
 {
- Account Ben(1092, 357);
+ MockAccount Ben(1092, 357);
  Ben.Unlock();
  EXPECT_EQ(Ben.is_locked_, false);
 }
