@@ -60,10 +60,13 @@ jobs:
         lcov --remove coverage.info '*/gtest/*' '/usr/*' --output-file coverage.info
         genhtml coverage.info --output-directory coverage_report --ignore-errors mismatch
 
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
+    - name: Upload to Coveralls
+      uses: coverallsapp/github-action@v2
       with:
-        path-to-lcov: ${{github.workspace}}/coverage.info
-        github-token: ${{ secrets.COVERALS_REPO_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: coverage.info
+        flag-name: linux
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALS_REPO_TOKEN }}
 
 
