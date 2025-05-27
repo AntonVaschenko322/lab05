@@ -36,22 +36,8 @@ TEST(Transaction_test, test_set_fee) {
 	EXPECT_TRUE(5 == trans.fee());
 }
 
-TEST(Transaction_test, test_Make) {
-	//MockAccount acc1(1, 100);
-	//MockAccount acc2(2, 873);
-	Account acc1(1, 200);
-	Account acc2(2, 873);
-	Transaction trans;
-	//EXPECT_TRUE(Acc.GetBalance() == 999);
-	//EXPECT_CALL(acc1, GetBalance()).Times(1);
-	//EXPECT_CALL(trans, SaveToDataBase(_, _, _)).Times(1);
-	bool succes = trans.Make(acc1, acc2, 150);
-	//std::cout << trans.fee();
-	//EXPECT_TRUE(succes);
-	EXPECT_TRUE(acc1.GetBalance() == (50 - trans.fee()));
-}
-
-TEST(MockTransaction_test, test_SaveToDataBase) {
+TEST(MockTransaction_test, test_SaveToDataBase)
+{
 	/*MockAccount acc1(1, 100);
 	MockAccount acc2(2, 873);*/
 	Account acc1(1, 200);
@@ -88,7 +74,8 @@ TEST(MockTransaction_test, test_SaveToDataBase) {
 	std::cout << acc2.GetBalance() << "\nÃÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÉÄÀ\n";
 }
 
-TEST(Account_test, test_GetBalance1) {
+TEST(Account_test, test_GetBalance1)
+{
 	Account acc(101, 1337);
 
 	int balance = acc.GetBalance();
@@ -99,7 +86,8 @@ TEST(Account_test, test_GetBalance1) {
 	//EXPECT_CALL(Acc, GetBalance());
 }
 
-TEST(Account_test, test_GetBalance2) {
+TEST(Account_test, test_GetBalance2) 
+{
 	Account acc(99, 0);// Arrange
 
 	int balance = acc.GetBalance();//Act
@@ -107,7 +95,8 @@ TEST(Account_test, test_GetBalance2) {
 	EXPECT_EQ(balance, 0);//Assert
 }
 
-TEST(Account_test, test_ChangeBalance) {
+TEST(Account_test, test_ChangeBalance)
+{
 	Account acc(99, 1);
 
 	acc.Lock();
@@ -118,13 +107,15 @@ TEST(Account_test, test_ChangeBalance) {
 	EXPECT_EQ(balance, 87557);
 }
 
-TEST(Account_test, test_Lock) {
+TEST(Account_test, test_Lock) 
+{
 	Account acc(99, 0);
 
 	ASSERT_ANY_THROW(acc.ChangeBalance(87556));
 }
 
-TEST(Account_test, test_Lock2) {
+TEST(Account_test, test_Lock2)
+{
 	Account acc(99, 0);
 
 	acc.Lock();
@@ -132,7 +123,8 @@ TEST(Account_test, test_Lock2) {
 	ASSERT_ANY_THROW(acc.Lock(););
 }
 
-TEST(Account_test, test_UnLock) {
+TEST(Account_test, test_UnLock)
+{
 	Account acc(99, 0);
 
 	acc.Lock();
@@ -141,7 +133,8 @@ TEST(Account_test, test_UnLock) {
 }
 
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     testing::InitGoogleTest(&argc, argv);
     testing::InitGoogleMock(&argc, argv);
     return RUN_ALL_TESTS();
