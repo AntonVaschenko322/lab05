@@ -6,11 +6,14 @@
 class MockAccount : public Account
 {
 public:
- MockAccount(int id, int balance):Account(id, balance){};
+
+ MockAccount(int id, int balance) : Account(id, balance) {};
+ //~MockAccount()
  MOCK_METHOD(int, GetBalance, (), (const, override));
  MOCK_METHOD(void, ChangeBalance, (int diff), (override));
- using Account::is_locked_;
- bool IsLocked() const { return is_locked_; }
+ MOCK_METHOD(void, Lock, (), (override));
+ MOCK_METHOD(void, Unlock, (), (override));
+ MOCK_METHOD(int, id, (), (const));
 };
 
 class MockTransaction : public Transaction
@@ -19,9 +22,14 @@ class MockTransaction : public Transaction
  MOCK_METHOD(void, SaveToDataBase, (Account& from, Account& to, int sum), (override)); 
 };
 
+TEST(Transaction_test, test_set_fee) {
+	Transaction trans;
+	trans.set_fee(5);
+	EXPECT_TRUE(5 == trans.fee());
+}
+
 TEST(trantest, SaveToDataBase)
 {
-
  Account acc1(1, 100);
  Account acc2(2, 873);
  MockTransaction trans;
@@ -29,12 +37,13 @@ TEST(trantest, SaveToDataBase)
  trans.SaveToDataBase(acc1, acc2, 150);
 }
 
-TEST(Transaction_test, test_Make) {
-	Account ben1(1, 200);
-	Account ben2(2, 873);
-	Transaction trans;
-	bool succes = trans.Make(ben1, ben2, 150);
-	EXPECT_TRUE(ben1.GetBalance() == (50 - trans.fee()));
+TEST(Transaction_test, test_Make) 
+{
+ Account ben1(1, 200);
+ Account ben2(2, 873);
+ Transaction trans;
+ bool succes = trans.Make(ben1, ben2, 150);
+ EXPECT_TRUE(ben1.GetBalance() == (50 - trans.fee()));
 }
  
 TEST(acctest, GetBalance)
