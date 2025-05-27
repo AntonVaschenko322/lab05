@@ -35,6 +35,10 @@ TEST(trantest, SaveToDataBase)
  MockTransaction trans;
  EXPECT_CALL(trans, SaveToDataBase(testing::_, testing::_, testing::_)).Times(1);	 
  trans.SaveToDataBase(acc1, acc2, 150);
+ std::cout << acc1.id() << "\nÃÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÉÄÀ\n";
+ std::cout << acc1.GetBalance() << "\nÃÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÉÄÀ\n";
+ std::cout << acc2.id() << "\nÃÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÉÄÀ\n";
+ std::cout << acc2.GetBalance() << "\nÃÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÉÄÀ\n";
 }
 
 TEST(Transaction_test, test_Make) 
