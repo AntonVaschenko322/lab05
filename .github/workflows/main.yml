@@ -42,7 +42,9 @@ jobs:
       #  sudo cp lib/* /usr/lib
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      #run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: |
+          cmake -B build -Dgtest_disable_pthreads=ON -Dgtest_hide_internal_symbols=ON
       #run: |
         #cmake -B build -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} -DBUILD_TESTS=ON
       # run: |
