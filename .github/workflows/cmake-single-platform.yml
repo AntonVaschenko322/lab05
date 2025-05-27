@@ -46,6 +46,14 @@ jobs:
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest -C ${{env.BUILD_TYPE}}
 
+    - name: Install GTest (if not bundled)
+      run: |
+        sudo apt-get install -y libgtest-dev
+
+    - name: Run tests
+      run: |
+        cd build/tests && ctest --output-on-failure && ${{github.workspace}}/build/tests/test1
+
     - name: Coverage
       run: |
         lcov --directory . --capture --output-file coverage.info --ignore-errors mismatch
