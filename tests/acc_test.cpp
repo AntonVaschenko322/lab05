@@ -37,6 +37,16 @@ TEST(Transaction_test, test_Make)
 	
 }
 
+TEST(Transaction_test, test_Make2) 
+{
+	Account test1(1, 2000);
+	Account test2(2, -3);
+	Transaction trans;
+	bool sus = trans.Make(test1, test2, 4000);
+	EXPECT_FALSE(sus);
+	
+}
+
 TEST(Account_test, test_GetBalance1)
 {
 	Account test(23434, 1000);
