@@ -34,7 +34,7 @@ TEST(Transaction_test, test_Make)
 	Account test1(1, 2000);
 	Account test2(2, 3322);
 	Transaction trans;
-	bool sus = trans.make(test1, test2, 4000);
+	bool sus = trans.Make(test1, test2, 4000);
 	EXPECT_TRUE(sus);
 	
 }
