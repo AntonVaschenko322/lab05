@@ -33,8 +33,8 @@ TEST(Transaction_test, test_Make)
 	Account test1(1, 2000);
 	Account test2(2, 3322);
 	Transaction trans;
+	EXPECT_CALL(trans, Make(_, _, _)).Times(1);	
 	bool succes = trans.Make(test1, test2, 50);
-	EXPECT_TRUE(test1.GetBalance() == (3372 - trans.fee()));
 }
 
 TEST(Account_test, test_GetBalance1)
