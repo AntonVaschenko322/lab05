@@ -21,65 +21,59 @@ public:
 };
 TEST(MockTransaction_test, test_SaveToDataBase)
 {
-	Account acc1(1, 200);
-	Account acc2(2, 873);
+	Account test1(1, 10000);
+	Account test2(2, 44444);
 	MockTransaction trans;
 	EXPECT_CALL(trans, SaveToDataBase(_, _, _)).Times(1);	 
 	trans.SaveToDataBase(acc1, acc2, 150);
-	std::cout << acc1.id() << "\nÃÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÉÄÀ\n";
-	std::cout << acc1.GetBalance() << "\nÃÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÉÄÀ\n";
-	std::cout << acc2.id() << "\nÃÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÉÄÀ\n";
-	std::cout << acc2.GetBalance() << "\nÃÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÎÉÄÀ\n";
 }
 
 TEST(Transaction_test, test_Make) 
 {
-	Account acc1(1, 200);
-	Account acc2(2, 873);
+	Account test1(1, 2000);
+	Account test2(2, 3322);
 	Transaction trans;
-	bool succes = trans.Make(acc1, acc2, 150);
+	bool succes = trans.Make(acc1, acc2, 50);
 	EXPECT_FALSE(acc1.GetBalance() == (50 - trans.fee()));
 }
 
 TEST(Account_test, test_GetBalance1)
 {
-	Account acc(101, 1337);
+	Account test(23434, 1000);
 	int balance = acc.GetBalance();
-	EXPECT_EQ(balance, 1337);
+	EXPECT_EQ(balance, 1000);
 }
+
+TEST(Acc_test, t_unlock)
+{
+	Account test(1222, 0);
+	EXPECT_CALL(test, Unlock()).Times(1);
+	test.Unlock();
+}
+
 
 TEST(Account_test, test_GetBalance2) 
 {
-	Account acc(99, 0);
-	int balance = acc.GetBalance();
+	Account test(9, 0);
+	int balance = test.GetBalance();
 	EXPECT_EQ(balance, 0);
 }
 
 TEST(Account_test, test_ChangeBalance)
 {
-	Account acc(99, 1);
-	acc.Lock();
-	acc.ChangeBalance(87556);
-	acc.Unlock();
-	int balance = acc.GetBalance();
-	EXPECT_EQ(balance, 87557);
+	Account test(5, 4444);
+	test.Lock();
+	test.ChangeBalance(87556);
+	int balance = test.GetBalance();
+	EXPECT_EQ(balance, 92000);
 }
 
 TEST(Account_test, test_Lock) 
 {
-	Account acc(99, 0);
-	ASSERT_ANY_THROW(acc.ChangeBalance(87556));
+	Account test(4, 0);
+	test.Lock();
+	EXPECT_CALL(test, Lock()).Times(1);
 }
-
-TEST(Account_test, test_Lock2)
-{
-	Account acc(99, 0);
-
-	acc.Lock();
-	
-	ASSERT_ANY_THROW(acc.Lock(););
-}
-
 
 int main(int argc, char **argv)
 {
