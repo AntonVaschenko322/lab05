@@ -33,14 +33,14 @@ TEST(Transaction_test, test_Make)
 	Account test1(1, 2000);
 	Account test2(2, 3322);
 	Transaction trans;
-	bool succes = trans.Make(acc1, acc2, 50);
+	bool succes = trans.Make(test1, test2, 50);
 	EXPECT_FALSE(acc1.GetBalance() == (50 - trans.fee()));
 }
 
 TEST(Account_test, test_GetBalance1)
 {
 	Account test(23434, 1000);
-	int balance = acc.GetBalance();
+	int balance = test.GetBalance();
 	EXPECT_EQ(balance, 1000);
 }
 
