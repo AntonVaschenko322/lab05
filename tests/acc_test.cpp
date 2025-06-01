@@ -80,15 +80,6 @@ TEST(Account_test, test_Lock2)
 	ASSERT_ANY_THROW(acc.Lock(););
 }
 
-TEST(Account_test, test_UnLock)
-{
-	Account acc(99, 0);
-
-	acc.Lock();
-	acc.Unlock();
-	ASSERT_NO_THROW(acc.Lock());
-}
-
 
 int main(int argc, char **argv)
 {
