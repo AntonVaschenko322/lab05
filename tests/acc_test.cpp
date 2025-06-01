@@ -7,6 +7,7 @@ using ::testing::_;
 
 class MockTransaction : public Transaction {
 public:
+	MOCK_METHOD(bool, Make, (Account& from, Account& to, int sum), ());
 	MOCK_METHOD(void, SaveToDataBase, (Account& from, Account& to, int sum), (override));
 };
 
