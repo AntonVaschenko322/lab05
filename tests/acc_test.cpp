@@ -25,7 +25,7 @@ TEST(MockTransaction_test, test_SaveToDataBase)
 	Account test2(2, 44444);
 	MockTransaction trans;
 	EXPECT_CALL(trans, SaveToDataBase(_, _, _)).Times(1);	 
-	trans.SaveToDataBase(acc1, acc2, 150);
+	trans.SaveToDataBase(test1, test2, 150);
 }
 
 TEST(Transaction_test, test_Make) 
@@ -70,7 +70,7 @@ TEST(Account_test, test_ChangeBalance)
 
 TEST(Account_test, test_Lock) 
 {
-	Account test(4, 0);
+	MockAccount test(4, 0);
 	test.Lock();
 	EXPECT_CALL(test, Lock()).Times(1);
 }
