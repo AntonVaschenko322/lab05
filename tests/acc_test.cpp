@@ -46,7 +46,7 @@ TEST(Account_test, test_GetBalance1)
 
 TEST(Acc_test, t_unlock)
 {
-	Account test(1222, 0);
+	MockAccount test(1222, 0);
 	EXPECT_CALL(test, Unlock()).Times(1);
 	test.Unlock();
 }
