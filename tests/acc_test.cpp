@@ -72,8 +72,8 @@ TEST(Account_test, test_ChangeBalance)
 TEST(Account_test, test_Lock) 
 {
 	MockAccount test(4, 0);
-	test.Lock();
 	EXPECT_CALL(test, Lock()).Times(1);
+	test.Lock();
 }
 
 int main(int argc, char **argv)
