@@ -33,9 +33,10 @@ TEST(Transaction_test, test_Make)
 {
 	Account test1(1, 2000);
 	Account test2(2, 3322);
-	MockTransaction trans;
-	EXPECT_CALL(trans, Make(_, _, _)).Times(1);	
-	bool succes = trans.Make(test1, test2, 50);
+	Transaction trans;
+	bool sus = trans.make(test1, test2, 4000);
+	EXPECT_TRUE(sus);
+	
 }
 
 TEST(Account_test, test_GetBalance1)
